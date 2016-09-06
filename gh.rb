@@ -115,7 +115,7 @@ class Kmm
       intputData.each_with_index do |value,input_index|
         sum+=(hiddenWeight[input_index][hidden_index]*value)
       end
-      sum+=bias=hiddenbias[hidden_index]
+      sum+=hiddenbias[hidden_index]
       value=p_t_transmission(sum)
       @hidden[hidden_index]=value
     end
@@ -128,7 +128,7 @@ class Kmm
       hiddenDate.each_with_index do |value,hidden_index|
         sum+=(outputWeight[hidden_index][output_index]*value)
       end
-      sum+=bias=outputbias[output_index]
+      sum+=outputbias[output_index]
       value=p_t_transmission(sum)
       @outPut[output_index]=value
     end
@@ -212,7 +212,7 @@ end
 
 srand 1
 m=Kmm.new(1,2,1)
-1000.times do |i|
+3001.times do |i|
   Weight.each_index do |index|
     error=m.tranData([Weight[index]/100],[Volume[index]/100])
     puts "Error after iteration #{i}:\t#{error}" if i%200 == 0

@@ -18,7 +18,7 @@ times = Benchmark.measure do
   #   a.train([0,1], [1])
   #   a.train([1,0], [1])
   #   error = a.train([1,1], [0])
-  #   puts "Error after iteration #{i}:\t#{error}" if i%200 == 0
+  #   puts "Error after iteration #{i}:\t#{error}"200  if i%== 0
   # end
   #
   # puts "Test data"
@@ -30,11 +30,11 @@ times = Benchmark.measure do
 a = MLP.new(:hidden_layers => [1], :output_nodes => 1, :inputs => 1)
 3001.times do |i|
     Weight.each_index do |index|
-      error=a.train([Weight[index]],[Volume[index]])
+      error=a.train([Weight[index]/100],[Volume[index]/100])
       puts "Error after iteration #{i}:\t#{error}" if i%200 == 0
     end
   end
-puts "[18.1] = > #{a.feed_forward([18.1]).inspect}"
+puts "[18.1] = > #{a.feed_forward([18.1/100]).inspect}"
   
 end
 puts "Elapsed time: #{times}"
